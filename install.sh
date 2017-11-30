@@ -6,45 +6,15 @@ while true; do
 - 		      Adaption library for A12 Ambarella			     -
 ----------------------------------------------------------------------
 >> Select Build Model :
-   1. Crystal
-   2. X1000
-   3. GXR1000
-   4. GXR2000
-   5. Quit
+   1. X1000
+   2. GXR1000
+   3. GXR2000
+   4. Quit
 "
 	read -p "Enter Selection [1-5] : "
 
 	if [[ $REPLY =~ ^[1-5]$ ]]; then
 		if [[ $REPLY == 1 ]]; then
-			echo "Plaese select [ u ] for all"
-			cd ./vendors/ambarella/lib
-			7z x -y CRYSTAL_X1000_lib_adas.7z
-			7z x -y CRYSTAL_lib.7z
-			
-			cd ../ucode/a55
-			7z x -y CRYSTAL_ucode_a12a55.7z
-
-			cd ../../image/iqtable/b5_imx322/bins
-			7z x -y CRYSTAL_iq_tuning_b5_imx322.7z
-			
-			cd ../../ov4689/bins
-			7z x -y CRYSTAL_iq_tuning_ov4689.7z
-			
-			cd ../../../../../../linux_image
-			7z x -y linux_image.7z
-
-			echo "Complete all file adapting for CRYSTAL.. exit"
-			
-			cd ../
-			make clean
-			make distclean
-			make crystal_8gb_defconfig			
-			echo "Complete configure. Enter make"
-			echo ""
-			exit 0
-		fi
-
-		if [[ $REPLY == 2 ]]; then
 			echo "Plaese select [ u ] for all"
 			cd ./vendors/ambarella/lib
 			7z x -y CRYSTAL_X1000_lib_adas.7z
@@ -73,7 +43,7 @@ while true; do
 			exit 0
 		fi
 		
-		if [[ $REPLY == 3 ]]; then
+		if [[ $REPLY == 2 ]]; then
 			echo "Plaese select [ u ] for all"
 			cd ./vendors/ambarella/lib
 			7z x -y lib_patch_ufcws_20161128.7z
@@ -102,7 +72,7 @@ while true; do
 			exit 0
 		fi
 		
-		if [[ $REPLY == 4 ]]; then
+		if [[ $REPLY == 3 ]]; then
 			echo "Plaese select [ u ] for all"
 			cd ./vendors/ambarella/lib
 			7z x -y lib_patch_ufcws_20161128.7z
@@ -132,12 +102,12 @@ while true; do
 		fi
 		
 
-		if [[ $REPLY == 5 ]]; then
+		if [[ $REPLY == 4 ]]; then
 			echo "exit.."
 			exit 0 
 		fi
 	else
-		echo "Please select 1 - 5"
+		echo "Please select 1 - 4"
 	fi		
 		
 done		
